@@ -32,12 +32,13 @@ public class Main {
         //transformValueFlatMap();
         //filterValue();
         //fallBackEager();
-        fallBackLazy();
+        //fallBackLazy();
+        withException();
     }
 
     private static Optional<User> findUser(){
-        return Optional.of(new User("Camargo", Optional.of("linkcamargo@gmail.com")));
-        //return Optional.empty();
+        //return Optional.of(new User("Camargo", Optional.of("linkcamargo@gmail.com")));
+        return Optional.empty();
     }
 
     private static Supplier<String> findDefaultValue() {
@@ -120,7 +121,10 @@ public class Main {
         System.out.println(email.orElseGet(findDefaultValue()));
     }
 
-
+    private static void withException(){
+        String nome = Optional.ofNullable(null)
+                .orElseThrow(() -> new IllegalArgumentException("Campo obrigatorio"));
+    }
 
 
 }
