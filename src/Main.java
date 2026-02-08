@@ -122,8 +122,8 @@ public class Main {
     }
 
     private static void withException(){
-        String nome = Optional.ofNullable(null)
-                .orElseThrow(() -> new IllegalArgumentException("Campo obrigatorio"));
+        Optional<User> user = findUser();
+        User nome = user.orElseThrow(() -> new IllegalArgumentException("Campo obrigatorio"));
     }
 
 
